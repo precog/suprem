@@ -1,0 +1,54 @@
+language: scala
+scala: 2.12.8
+jdk: openjdk8
+
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+    - $HOME/.coursier/cache
+
+env:
+  global:
+    - COURSIER_PROGRESS=0
+    - SBT=./sbt
+    # ENCRYPTION_PASSWORD
+    - secure: "WYO0lgVnWaXg+gGV/LfQnf/CMHJ22haF0er9yCNOzl8+apoPhqjrThZRrf0oj4oCA+dnYvp/dO84jo6Aw3WyTR/Pq8d/+6HCl+nIrXYSWiZBWR5McIXDcuXvJAQ9vEKcAEXCuHdvb8Iyd5Z/8wy9Dp04aRgbEap9PsWbRHMx+3Ia+UnzIp0C91lcwV5XyljstK743DKCWb+rlaWJdp99uyqEwdhfMZH+zOjHDfCNlxRhhHgh/Aj0LRjV4jcOrLou6uMpcXAWUSIHT3+duNsThwww5R04pqGUO+Dk68zGNodi0vj/qzC/QpQcBjThGhAtrXHPQuafVriNvRMOHQouVadGNNjsCcY3au8syr5MmMdP3EVS8FfSe1lS/IdfMo3p5UBRfMJ7u5YM1Sb4pbJxeBGiVz+c8IUcP5sSfo9qb7r7jIBAP4f26Ary6zT1Rrh3Wpfk/pLnMdwPmLySxPCINN3ueYC59evrryRyh1mjrmB6xvvckFdetxXUrXuHwe5fCvd0yxeKHSvp3tqSutOvnVQes6qlSeyVTGjQZjsoqJHVTuInLuJgjXbUsKnAD/0KbEgPE4vU7bOa1PYLbQOSMpeDHFX8mpjsRZ7dd4XI3ybiqWhG2khwf+tnHINeD27Wd3LlV0CUKe3swZ0N72vSdEYddjoKVZttQMOZARzGyxk="
+    # GITHUB_TOKEN
+    - secure: "TJojp/LOvzFdLWr9Clq4FhdQGVhDA5Cp4/Q/FuVUDmDZ1zH8I0NKySxY7jZqYXIDpzEVQIJngZZbrW8I2t3iFzcqRFCeQR7MOqIHTgfewdQ42rgreSDeTfCqzRp2fakV643JdJWy3QHycbU8KBWfanHtR8nmybc5INRnhQQXQZ51OXnOflEtrjr8HLsVwuxeVLVeasDpMe2NXeO2q5crxG3MWonmMryN7QuslZSfkB2K2MugP1ATAy2/vsSMkLBuwvPcNHmSKJCcyPJhCkthOhhKJuc+WchVNTSYADtPHLnomsUC2t3Z1Xi2ygHhQao+UyU2rY0z5OA7ag7muVTJ2lux6lMVGHJjhhxBN7K/fR6NdPuwhJA4anGDTabqw2iXyT47EHpOnKjV91S0aD7mbKvENI3vZVpnTIxodmUkUeLuKF+xx+e5YcukXtG6YuzLS+EnDxF+EFS7YHIS2tTdHrOo76zgrXJWqN6tsaONGb22kbNKHC8CAhZDG4aedf0AvRgDJkkG7kyKmsvHqmHPWIF0vRFhpBVgKHYz00zWntVf3RY9BVz7qlQMjftSh3AUCHQ4M46Mnxir3VgpTQmuOIO75wSfu/EEPvPOOLGpIYlU1eD0k5354jGjRH4s/u3VaEuKjbHFYSAxOwFhItoPHOJVccRllK4TonZEr8fQa6c="
+    # GITHUB_ACCESS_TOKEN
+    - secure: "aAqdYg0+EdaF146leEKUHGDNBJzPX+qkFPUBOvHg3pLx2QffhfI7cR9mv6qVX5FqWCGMmRVXxhsJt7l/W0hRBLKEjMA447y+C9DKARj6GRJ/g+zQOK/VGldWfrLgP6MEwCLUSNIR2qW4xnD8f3BG1n+pMuLE+tr7hoTIjiPGEwcuI4unJtKAWc+VakJOEfmwbLZdEmlyKyUSW+qfdsuAUjxDlPsqC01yRUfMtwqHrprUGEXIE0eqDXlReu5jYOzOSbksNv9UMCEvUsRkPaGGkg06gsGwUzQDsAUwmy+pVS8lXX1bih2yIW6dkUtMxIJwoOvIyRrf1aSk2VdslM+PhKXLyV4XY7LDoQJ9qpYm/4Qy2xbF9j8ffAAOPBLlY0/bWTRdgrJoBrIuWiK+vYCBtzReAXa128vVZHc5RBRE+PAHl00UdobdNq513wDkdy64c4P/k0PympE5yiBE1wWTfNhJ00bRKRYORnlqCGMXnLnEJdkhH9LdOPZZUCjD5FaNn7cWen+YmPEvW/p+zVCW9+vPz5DPxNUlev6YCef4SfEWOoUU28EXINaGWOimHijn1cpgX2XpobjjwGdncT0pxtwJY8AXg+1GLXEm6kw2y0Ayll0g8mHS+0VDu8Yx2dnai6doQttec3aHdxwA7FWtxwYK8AlL2xzK8BYKmvLgsaE="
+    # DISCORD_WEBHOOK_TOKENS
+    - secure: "Diya8keNdkau9kMlbObwQMzLBWradVOzV8kpGdSFtoHnrUvmduLyX5j7CsrpWXUPK4H2xe+ajsc+yr6O+7Ov8qVS7/0ObPhSpUGSjTnVRfiJRAmJrAPC1toxq6pMGLVhoUnvlXhdQsQN59YB075pchzIRCAMayQELIEd14tFjzrpgVYdWFN8ZQV4MreHwXxBmiBj2JHjunpAUHNgGid1tHfywBb/EGRM0HVon78Q+4nm6oUju2Tf0i3upsR7lcgadOYJWksuhBzcMRsdcbSs7Gct2US/aGB3AeJpvhClR7rX2H1vFag7GCuAn3rqywZgEAlpDPHpUnH/aKtylsJsOgEQSun8PC6L7EWkq6P/hN5LKy0HyBr4ldDYOC/3RIieThDk/8oyromZ7mOWYICqZR/aKbIdtN3nfBctX/6AJjmolSXmnYWJxHve53ainDE0tSGkellLBBEPFDL4uNOUAvVnkcLkn4FR/mQ241YpqNe0Ucc3IynbukW4caAmM9vyRZb5qTzYQIYoIDep4TzdSMlgoUWYGGhqP/En3R2xrDKz3UEF5TqHU+6bjVWbPtM2D9xuKb3qvLT+O+fKr+8+vbsGHaRCJ3cScF4LX4a+sqqrwwXC0BtP1vz1TbMazrLSZxPm67pJxwdYibcEW/p1jdg822Wvp6vIM3i59pkMCvI="
+
+install:
+  - mkdir scripts
+  - $SBT transferCommonResources
+  - scripts/commonSetup
+
+script:
+    - set -e
+
+    - $SBT ++$TRAVIS_SCALA_VERSION test
+
+    - |-
+      if [ $TRAVIS_PULL_REQUEST == "false" ] && [[ "$TRAVIS_BRANCH" =~ backport/v.*|master ]]; then
+        $SBT transferPublishAndTagResources;
+        TRAVIS_JOB_NUMBER=1 scripts/publishAndTag 'slamdata/suprem';
+      fi
+
+after_success:
+  - scripts/checkAndAutoMerge
+  - scripts/discordTravisPost success https://discordapp.com/api/webhooks/$DISCORD_WEBHOOK_TOKENS
+
+after_failure:
+  - scripts/discordTravisPost failure https://discordapp.com/api/webhooks/$DISCORD_WEBHOOK_TOKENS
+
+branches:
+  only:
+    - master
+    - /^backport.*$/
+
+before_cache:
+  - find "$HOME/.sbt/" -name '*.lock' -print0 | xargs -0 rm
+  - find "$HOME/.ivy2/" -name 'ivydata-*.properties' -print0 | xargs -0 rm
