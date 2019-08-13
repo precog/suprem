@@ -8,6 +8,13 @@ scmInfo in ThisBuild := Some(ScmInfo(
   url("https://github.com/slamdata/suprem"),
   "scm:git@github.com:slamdata/suprem.git"))
 
+lazy val sharedSettings = Seq(
+  performMavenCentralSync := false,
+  publishAsOSSProject := true,
+  addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1")
+)
+
+
 lazy val root = project
   .in(file("."))
   .settings(noPublishSettings)
@@ -16,9 +23,7 @@ lazy val root = project
 
 lazy val core = project
   .in(file("core"))
-  .settings(
-    performMavenCentralSync := false,
-    publishAsOSSProject := true)
+  .settings(sharedSettings)
   .enablePlugins(AutomateHeaderPlugin)
 
 lazy val scodec = project
@@ -26,9 +31,7 @@ lazy val scodec = project
   .dependsOn(
     core,
     testkit % "compile->test")
-  .settings(
-    performMavenCentralSync := false,
-    publishAsOSSProject := true)
+  .settings(sharedSettings)
   .settings(
     libraryDependencies += "org.scodec" %% "scodec-core" % V.scodec)
   .enablePlugins(AutomateHeaderPlugin)
@@ -36,9 +39,7 @@ lazy val scodec = project
 lazy val testkit = project
   .in(file("testkit"))
   .dependsOn(core)
-  .settings(
-    performMavenCentralSync := false,
-    publishAsOSSProject := true)
+  .settings(sharedSettings)
   .settings(
     libraryDependencies ++= Seq(
       "org.scodec" %% "scodec-bits" % V.scodecBits,
